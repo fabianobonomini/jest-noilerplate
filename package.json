@@ -1,0 +1,22 @@
+{
+  "name": "jest-noilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watchAll --verbose --runInBand --detectOpenHandles --logHeapUsage  --no-cache --config ./config/jest.config.js --coverageReporters=text-summary"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabianobonomini/jest-noilerplate.git"
+  },
+  "author": "Fabiano Bonomini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fabianobonomini/jest-noilerplate/issues"
+  },
+  "homepage": "https://github.com/fabianobonomini/jest-noilerplate#readme",
+  "devDependencies": {
+    "jest": "^27.3.1"
+  }
+}

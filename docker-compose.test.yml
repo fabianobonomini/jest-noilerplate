@@ -1,0 +1,12 @@
+version: '3.1'
+services:
+  server:
+    container_name: jest-boilerplate
+    build: ./_docker/build/server-test
+    tty: true
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./:/usr/src/app/
+    environment:
+      NODE_ENV: test
