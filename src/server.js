@@ -8,6 +8,7 @@ app.use(express.json());
 app.get(`/fake-html`, async (req, res) => {
     let markup = `<html>
         <body>
+            <img src="https://www.ansa.it/webimages/ch_620x438/2021/12/1/987691de422940f8438f00801b69438f.jpg" />
             <form id="fake-form" method="POST" action="/fake-post">
                 <input name="fake-input" id="fake-input" value="Test Default">
                 <button id="send-button">Send</button>

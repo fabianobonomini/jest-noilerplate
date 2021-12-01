@@ -10,7 +10,7 @@ describe('stop-request', ()=> {
         let paused = true;
         let pausedRequests = [];
 
-        crawler.page.on('request', request => {
+        crawler.page.on('request', async request => {
             console.log(`onRequest - START`);
             const information = {
                 url: request.url(),
@@ -26,7 +26,13 @@ describe('stop-request', ()=> {
             if (!paused) {
                 console.log(`Pause is falsy it should send the request`);
                 request.continue();
-            };
+            } else{
+                if(request.method() === 'POST'){
+                    console.log(`condition is pausing, so we can exit`);
+                    //await crawler.browser.close();
+                    request.abort();
+                }                
+            }
             /*
             if (paused) {
                 console.log(request);

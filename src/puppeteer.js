@@ -21,6 +21,7 @@ class Crawler {
             },
             timeout: 10000,
             headless: false,
+            devtools:true,
             slowMo: 500 // slow down by 500ms
         });
         //create a page and keep its state
