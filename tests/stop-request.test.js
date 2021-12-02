@@ -10,6 +10,11 @@ describe('stop-request', ()=> {
         let paused = true;
         let pausedRequests = [];
 
+        crawler.page.on('console', message => console.log(`CONSOLE: ${message.type().substr(0, 3).toUpperCase()} ${message.text()}`));
+        crawler.page.on('pageerror', ({ message }) => console.log(`PAGEERROR: ${message}`));
+        crawler.page.on('response', response =>  console.log(`RESPONSE: ${response.status()} ${response.url()}`));
+        crawler.page.on('requestfailed', request => console.log(`REQUESTFAILED: ${request.failure().errorText} ${request.url()}`));
+
         crawler.page.on('request', async request => {
             console.log(`onRequest - START`);
             const information = {
@@ -19,7 +24,7 @@ describe('stop-request', ()=> {
                 requestPostData: request.postData()
             };
 
-            console.log(information);
+            
 
             console.log(`onRequest - END`);
 
@@ -29,7 +34,7 @@ describe('stop-request', ()=> {
             } else{
                 if(request.method() === 'POST'){
                     console.log(`condition is pausing, so we can exit`);
-                    //await crawler.browser.close();
+                    console.log(information);
                     request.abort();
                 }                
             }
